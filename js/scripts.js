@@ -5,10 +5,14 @@ let pokemonList= [
     {name: 'Jigglypuff', type: ['normal','fairy'], height: 1.8}]
 
 
-for(let i=0; i < pokemonList.length; i++){
-    if(pokemonList[i].height > 1.9){
-        document.write( pokemonList[i].name + ',' + ' ' + '(height:' + ' ' + pokemonList[i].height + ')' + '-' + 'Wow! That is big!')
-    }else{
-        document.write('<p>' + pokemonList[i].name + ',' + ' ' + '(height:' + pokemonList[i].height + ')' + '</p>')
-    }
+//for(let i=0; i < pokemonList.length; i++){
+   // if(pokemonList[i].height > 1.9){
+   //     document.write( pokemonList[i].name + ',' + ' ' + '(height:' + ' ' + pokemonList[i].height + ')' + '-' + 'Wow! That is big!')
+   // }else{
+  //      document.write('<p>' + pokemonList[i].name + ',' + ' ' + '(height:' + pokemonList[i].height + ')' + '</p>')
+  //  }
+//}
+function myLoopFunction(pokemon) {
+    console.log(pokemon.name + ' is ' + pokemon.type + ' type ' + pokemon.height + ' height. ');
 }
+pokemonList.forEach(myLoopFunction);
