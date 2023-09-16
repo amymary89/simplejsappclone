@@ -13,29 +13,65 @@
   //  }
 //}
 
-
+//Created IIFE to avoid accidentally accessing the global state of `pokemonListRepository` array
 let pokemonRepository = (function () {
-    let pokemonList= [
+    let pokemonListRepository= [
         {name: 'Charmander', type: 'fire' , height: 2},
         {name: 'Squirtle', type: 'water', height: 1},
         {name: 'Pikachu', type: 'electric' , height: 1.5},
         {name: 'Jigglypuff', type: ['normal','fairy'], height: 1.8}]
     
     function add(pokemon) {
-        pokemonList.push(pokemon);
+        pokemonListRepository.push(pokemon);
     }
     
     function getAll() {
-        return pokemonList;
+        return pokemonListRepository;
     }
+
+    //print details of each pokemon clicked to console.log
+    function showDetails(pokemon) {
+        console.log(pokemon.name + " " + pokemon.type + " " + pokemon.height);
+      }
+
+//each pokemon is placed in a button, when clicked shows the details of each pokemon in console.log
+
+    function addListItem(pokemon){
+        let pokemonList = document.querySelector(".pokemon-list");
+        let listpokemon = document.createElement("li");
+        let button = document.createElement("button");
+        button.innerText = pokemon.name;
+        button.classList.add("button-class");
+        listpokemon.appendChild(button);
+        pokemonList.appendChild(listpokemon);
+        button.addEventListener('click', function(event){ 
+            showDetails(pokemon); 
+      });
 
     return {
         add: add,
         getAll: getAll
+        addListItem: addListItem
+        showDetails: showDetails,
     };
 })();
 
-function myLoopFunction(pokemon) {
-    console.log(pokemon.name + ' is ' + pokemon.type + ' type ' + pokemon.height + ' height. ');
-}
-pokemonRepository.getAll().forEach(myLoopFunction)
+console.log(pokemonRepository.getAll());
+
+pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.addListItem(pokemon);
+});
+
+//function myLoopFunction(pokemon) {
+//    console.log(pokemon.name + ' is ' + pokemon.type + ' type ' + pokemon.height + ' height. ');
+//}
+//pokemonRepository.getAll().forEach(function (pokemon) {
+//    let pokemonList = document.querySelector(".pokemon-list");
+   // let listpokemon = document.createElement("li");
+   // let button = document.createElement("button");
+ //   button.innerText = pokemon.name;
+ //   button.classList.add("button-class");
+ //   listpokemon.appendChild(button);
+  //  pokemonList.appendChild(listpokemon);
+
+//});
