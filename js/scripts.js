@@ -71,35 +71,38 @@ let pokemonRepository = (function () {
     }
 
   
-    function showModal (title, text) {
-      modalContainer.innerHTML = '';
-      let modal = document.createElement('div');
-      modal.classList.add('modal');
-
-      let closeButtonElement = document.createElement('button');
-      closeButtonElement.classList.add('modal-close');
-      closeButtonElement.innerText = 'Close';
-      closeButtonElement.addEventListener('click', hideModal);
-
-      let titleElement = document.createElement('h1');
-      titleElement.innerText = title;
-
-      let contentElement = document.createElement('p');
-      contentElement.innerText = text;
-
-      let container = document.querySelector('#image-container');
-      let myImage = document.createElement("img");
-     
-      
-      modal.appendChild(closeButtonElement);
-      modal.appendChild(titleElement);
-      modal.appendChild(contentElement);
-      modal.appendChild(myImage);
-      modalContainer.appendChild(modal);
-
-      modalContainer.classList.add('is-visible');
-      
-   }
+    function showModal (item) {
+        console.log(item);
+        modalContainer.innerHTML = '';
+        let modal = document.createElement('div');
+        modal.classList.add('modal');
+  
+        let closeButtonElement = document.createElement('button');
+        closeButtonElement.classList.add('modal-close');
+        closeButtonElement.innerText = 'Close';
+        closeButtonElement.addEventListener('click', hideModal);
+  
+        let titleElement = document.createElement('h1');
+        titleElement.innerText = item.name;
+  
+        let contentElement = document.createElement('p');
+        contentElement.innerText = "Height" + " " + item.height + " " + "meters";
+  
+        let container = document.querySelector('#image-container');
+        let myImage = document.createElement("img");
+  
+        myImage.src = item.imageUrl;
+  
+        modal.appendChild(closeButtonElement);
+        modal.appendChild(titleElement);
+        modal.appendChild(contentElement);
+        modal.appendChild(myImage);
+        modalContainer.appendChild(modal);
+  
+        modalContainer.classList.add('is-visible');
+  
+     }
+  
     
   
 
