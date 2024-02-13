@@ -10,9 +10,7 @@ Height
 Type
 Ability
 Image of Pokemon
-Pokemon Colors :
-
-YInMn Blue 3466AF Delft Blue 21386E / 1D2C5E Tangerine Yellow FFCB05 Neon Gold C7A008
+Pokemon Colors
 
 Used : jQuery Bootstrap
 
